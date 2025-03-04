@@ -1,0 +1,76 @@
+name: "React Native & Expo CI/CD Builder"
+description: "Generate custom GitHub Actions workflows for building React Native and Expo applications"
+author: "Tanay Kedia"
+branding:
+  icon: "smartphone"
+  color: "blue"
+
+inputs:
+  storage-type:
+    description: "Storage type for build artifacts (github-release, zoho-drive, google-drive, custom)"
+    required: false
+    default: "github-release"
+
+  build-types:
+    description: "Build types to generate (comma-separated: dev, prod-apk, prod-aab)"
+    required: false
+    default: "dev,prod-apk"
+
+  tests:
+    description: "Tests to run (comma-separated: typescript, eslint, prettier)"
+    required: false
+    default: "typescript"
+
+  triggers:
+    description: "Workflow triggers (comma-separated: push-main, pull-request, manual)"
+    required: false
+    default: "push-main,manual"
+
+  ios-support:
+    description: "Enable iOS build support"
+    required: false
+    default: "false"
+
+  publish-to-expo:
+    description: "Enable publishing to Expo"
+    required: false
+    default: "false"
+
+  publish-to-stores:
+    description: "Enable publishing to app stores"
+    required: false
+    default: "false"
+
+  jest-tests:
+    description: "Enable Jest tests"
+    required: false
+    default: "false"
+
+  rntl-tests:
+    description: "Enable React Native Testing Library tests"
+    required: false
+    default: "false"
+
+  render-hook-tests:
+    description: "Enable renderHook tests"
+    required: false
+    default: "false"
+
+  caching:
+    description: "Enable build caching"
+    required: false
+    default: "true"
+
+  notifications:
+    description: "Enable build notifications"
+    required: false
+    default: "false"
+
+  output-file:
+    description: "Path where to output the generated workflow file"
+    required: false
+    default: ".github/workflows/react-native-cicd.yml"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
