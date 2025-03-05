@@ -72,5 +72,5 @@ inputs:
     default: ".github/workflows/react-native-cicd.yml"
 
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
